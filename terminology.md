@@ -1,3 +1,4 @@
+# CAP Theorem Techniques
 ## Availability 
 * Quorum: Maintains enough number of R/W nodes as per R + W > N to tolerate temporary failure. 
 * Leader and Follower: Offloads responsiblity from client to Leader to update Quorum nodes
@@ -20,3 +21,6 @@
 ## Partition 
 * Consistent Hashing: Parition data by using CH so that it is faster to add or remove a node. Each node does maintain multiple VNodes to divide keys by range. 
 * Bloom Filters: Even with CH, searching is hard. Hence Bloom Filters gives you faster search result with a possibility of false positive. 
+
+## Examples 
+
