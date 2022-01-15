@@ -14,8 +14,9 @@
 * High-Water mark: A mark until system allows clients to read to maintain concistency. In case, leader goes down and WAL are not properly replicated to all other nodes. 
 * Checksum: Calculate a checksum and store it with data so that client can assure data integrity while fetching, if corrupted then fetch from another node.
 * Vector clock: Use Vector clocks to keep track of value history and reconcile divergent histories at read time. A vector clock is effectively a (node, counter) pair
+* Hinted Handoff: Backfill the recovering node with the data that it lost while it was gone to maintain consistency. When a node is down or is not responding to a write request, the node which is coordinating the operation, writes a hint in a text file on the local disk. This hint contains the data itself along with information about which node the data belongs to. When the coordinating node discovers that a node for which it holds hints has recovered, it forwards the write requests for each hint to the target.
+* Read Repair & Markle Trees: Repair stale data during the read operation, since at that point, we can read data from multiple nodes to perform a comparison and find nodes that have stale data. System uses checksum to identify inconsistency, if yes - then perform a read repair with latest data across all Quorum read nodes. When failure is long lasting, then use Markle Trees data structure to compare data copies for Synchronizing divergent replicas in the background. 
 
 ## Partition 
 * Consistent Hashing: Parition data by using CH so that it is faster to add or remove a node. Each node does maintain multiple VNodes to divide keys by range. 
 * Bloom Filters: Even with CH, searching is hard. Hence Bloom Filters gives you faster search result with a possibility of false positive. 
-* 
