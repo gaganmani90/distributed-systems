@@ -23,4 +23,4 @@
 * Bloom Filters: Even with CH, searching is hard. Hence Bloom Filters gives you faster search result with a possibility of false positive. 
 
 ## Examples 
-
+![alt text](https://github.com/gaganmani90/distributed-systems/blob/main/Dynamo.png?raw=true)
