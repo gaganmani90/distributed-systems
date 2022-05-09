@@ -13,5 +13,6 @@ Tenant isolation general flow: JWT token provided by client -> common library to
 * https://github.com/donnemartin/system-design-primer
 
 ## Technology 
-### JWT
+### [JWT](https://jwt.io)
+Used for authorization. (encrypted) header, payload and signature. Example - xxx.xxxx.xxxx
 ### TLS 
